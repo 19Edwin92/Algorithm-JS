@@ -1,8 +1,8 @@
-const solution = (n, dave) => {
-    return n%dave === 0 ? n/dave : Math.ceil(n/dave)
+const solution = (a,b) => {
+    return Math.ceil(a/b)
 }
 
-console.log("3. 연필개수", solution(178, 12));
+console.log("3. 연필개수", solution(25, 12));
 
 /*
 3. 연필개수
@@ -20,3 +20,7 @@ console.log("3. 연필개수", solution(178, 12));
 
     console.log(solution(178));
 */
+
+const solution1 = (n, dave) => {
+    return n%dave === 0 ? n/dave : Math.ceil(n/dave)
+}

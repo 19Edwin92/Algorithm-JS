@@ -1,11 +1,9 @@
-const solution = (a, b, c) => {
-    let maxNum = Math.max(a,b,c)
-    let lostNum = [a,b,c].filter(num => num !== maxNum).reduce((pre,num) => pre+num, 0)
-    console.log("maxNum", maxNum, "lostNum", lostNum)
-    return lostNum > maxNum ? "YES" : "NO"
+const solution = (a,b,c) => {
+    let arr = [a,b,c].sort((a,b) => a-b)
+    return arr[2] < arr[0]+arr[1] ? "YES" : "NO"
 }
 
-console.log("2. 삼각형 판별하기", solution(13, 33, 17));
+console.log("2. 삼각형 판별하기", solution(6, 7, 11));
 
 /*
 서로 다른 새 개의 막대 길이가 주어지면, 이 세 막대로 삼각형을 만들 수 있다.
@@ -21,5 +19,10 @@ function solution(a, b, c){
     if(tot-max<=max) answer="NO"; 
     return answer;
 }
-
 */
+
+const solution1 = (a, b, c) => {
+    let maxNum = Math.max(a,b,c)
+    let lostNum = [a,b,c].filter(num => num !== maxNum).reduce((pre,num) => pre+num, 0)
+    return lostNum > maxNum ? "YES" : "NO"
+}

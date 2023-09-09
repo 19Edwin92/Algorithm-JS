@@ -1,6 +1,4 @@
-const solution = (str) => {
-    return str.replace(/A/g, "#")
-}
+const solution = str => str.replace(/A/g, "#")
 
 let str="BANANA";
 console.log(solution(str));
@@ -13,4 +11,8 @@ console.log(solution(str));
 
 for ( let x of str) {
   // str은 이터러블이기에, for .. of 문이 가능합니다. 
+}
+
+const solution1 = (str) => {
+  return str.replace(/A/g, "#")
 }
