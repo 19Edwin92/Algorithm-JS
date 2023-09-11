@@ -1,6 +1,5 @@
-
-const solution = (arr, maxHeigth=arr[0], result=1) => {
-  arr.forEach((list, idx) => idx > 0 && list > maxHeigth && (maxHeigth = list) && result++)
+const solution  = (arr, maxHeight=Number.MIN_SAFE_INTEGER, result=0) => {
+  for(list of arr) maxHeight < list && (maxHeight=list) && result++
   return result
 }
 
@@ -46,3 +45,9 @@ const solution2 = (arr) => {
       : count;
   }, { count: 0, maxHeight: 0 }).count;
 };
+
+
+const solution3 = (arr, maxHeigth=arr[0], result=1) => {
+  arr.forEach((list, idx) => idx > 0 && list > maxHeigth && (maxHeigth = list) && result++)
+  return result
+}

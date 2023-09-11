@@ -1,4 +1,4 @@
-const solution = (str, result="") => {
+const solution = (str, result="") =>{
     for(list of str) !result.includes(list) && (result+=list)
     return result
 }
@@ -23,5 +23,10 @@ const solution1 = (str) => {
     for(let find of str) {
         if(!result.includes(find)) result+=find
     }
+    return result
+}
+
+const solution2 = (str, result="") => {
+    for(list of str) !result.includes(list) && (result+=list)
     return result
 }

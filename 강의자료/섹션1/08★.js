@@ -1,13 +1,14 @@
 const solution = arr => {
-    let tot = arr.reduce((calc, num) => calc+num, 0)
+    let total = arr.reduce((pre, cur) => pre+cur, 0)
     for(let i=0;i<arr.length;i++) {
-        if(tot-(arr[i]+arr[i+1]) === 100) {
+        if(total-(arr[i]+arr[i+1]) === 100) {
             arr.splice(i,2)
             break
         }
+        
     }
     return arr
-} //O(n)
+}
 
 
 let arr=[22, 7, 21, 19, 10, 15, 25, 8, 13]; // 40이 되는 경우가 2개라면 
@@ -72,3 +73,14 @@ function solution2(arr){
     }
     return answer;
 } // O(n^2)
+
+const solution3 = arr => {
+    let tot = arr.reduce((calc, num) => calc+num, 0)
+    for(let i=0;i<arr.length;i++) {
+        if(tot-(arr[i]+arr[i+1]) === 100) {
+            arr.splice(i,2)
+            break
+        }
+    }
+    return arr
+} //O(n)

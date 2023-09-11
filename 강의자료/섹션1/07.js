@@ -1,9 +1,7 @@
-const solution = (num, arr) => {
-    let result = arr.reduce((pre, cur) => 
-        (String(cur).includes(String(num)) && pre.push(cur), pre), []) // 쉼표연산자로 처리하기
-    return `위반차량수 : ${result.length}, 위반차량 : ${result}`;
+const solution = (restNum, arr, count=0) => {
+    for(list of arr) +String(list).charAt(1) === restNum && count++
+    return count
 }
-
 
 let arr=[25, 23, 11, 47, 53, 17, 33];
 console.log("10부제 위반차량", solution(3, arr));
@@ -26,3 +24,9 @@ function solution(day, arr){
 
 arr=[25, 23, 11, 47, 53, 17, 33];
 */
+
+const solution1 = (num, arr) => {
+    let result = arr.reduce((pre, cur) => 
+        (String(cur).includes(String(num)) && pre.push(cur), pre), []) // 쉼표연산자로 처리하기
+    return `위반차량수 : ${result.length}, 위반차량 : ${result}`;
+}

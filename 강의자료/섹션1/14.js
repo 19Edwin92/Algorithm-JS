@@ -1,6 +1,6 @@
-const solution = (str, findMaxLength="") => {
-    for (list of str) findMaxLength.length < list.length && (findMaxLength = list)
-    return findMaxLength
+const solution = (arr, result="") => {
+    for(list of arr) list.length > result.length && (result=list)
+    return result
 }
 
 let str=["teacher", "time", "student", "beautiful", "good"];
@@ -29,4 +29,9 @@ const solution1 = (str) => {
 
 const solution2 = str => {
     return str.map(list => [list, list.length]).sort((a,b) => b[1]-a[1])[0][0]
+}
+
+const solution3 = (str, findMaxLength="") => {
+    for (list of str) findMaxLength.length < list.length && (findMaxLength = list)
+    return findMaxLength
 }

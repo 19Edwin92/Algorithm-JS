@@ -1,6 +1,8 @@
-const solution = (arr, result=[arr[0]]) => {
-    arr.forEach((list, idx) => idx > 0 && list > arr[idx-1] && result.push(list))
-    return result
+const solution = arr => {
+    for(let i=0;i<arr.length;i++) {
+        i>0 && arr[i-1] > arr[i] && arr.splice(i,1)
+    }
+    return arr
 }
 
 let arr=[7, 3, 9, 5, 6, 12];
@@ -30,4 +32,9 @@ const solution1 = (arr) => {
         }
     });
     return newArr
+}
+
+const solution2 = (arr, result=[arr[0]]) => {
+    arr.forEach((list, idx) => idx > 0 && list > arr[idx-1] && result.push(list))
+    return result
 }
