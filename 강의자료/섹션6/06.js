@@ -1,9 +1,9 @@
-const solution = (num, targer, result=0) => {
-    let queue = Array.from({length:num}, (_,idx) => idx+1)
+const solution = (prince, exit, result=0) => {
+    let queue = Array.from({length:prince}, (_, idx) => idx+1)
     while(queue.length) {
-        for(let i=1;i<targer;i++) queue.push(queue.shift())
+        for(let i=1; i<exit;i++) queue.push(queue.shift())
         queue.shift()
-        queue.length === 1 && (result=queue.shift())
+        queue.length === 1 && (result+=queue.shift())
     }
     return result
 }
@@ -39,6 +39,26 @@ const solution1 = (list, targer, result=0) => {
         for(let i=1;i<targer;i++) queue.push(queue.shift()) // 조건만큼을 앞에서 뺴서 넣기 
         queue.shift() // targer은 그냥 제거
         queue.length === 1 && (result=queue.shift())
+    }
+    return result
+}
+
+const solution2 = (num, targer, result=0) => {
+    let queue = Array.from({length:num}, (_,idx) => idx+1)
+    while(queue.length) {
+        for(let i=1;i<targer;i++) queue.push(queue.shift())
+        queue.shift()
+        queue.length === 1 && (result=queue.shift())
+    }
+    return result
+}
+
+const solution3 = (prince, exit, result=0) =>{
+    let queue = Array.from({length:prince}, (_,idx) => idx+1)
+    while(queue.length) {
+        for(let i=1;i<exit; i++) queue.push(queue.shift())
+        queue.shift()
+        queue.length ===1 && (result=queue.shift())
     }
     return result
 }

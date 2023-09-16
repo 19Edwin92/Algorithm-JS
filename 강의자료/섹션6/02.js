@@ -1,8 +1,10 @@
-const solution = (str, stack=[], result="") => {
-    for(list of str) {
+const solution = (cnt, stack=[], result="") => {
+    for(list of cnt) {
         list === "(" 
-            ? stack.push(list) : list === ")" 
-            ? stack.pop() : stack.length ===0 && (result+=list)
+            ? stack.push(list) 
+            : list === ")" 
+                ? stack.pop()
+                : stack.length === 0 && (result+=list)
     }
     return result
 }
@@ -33,6 +35,14 @@ const solution1 = (str, stack=[], result="") => {
         list === "(" && stack.push(list)
         list === ")" && stack.pop()
         stack.length === 0 && list !== ")" && (result+=list)
+    }
+    return result
+}
+const solution2 = (str, stack=[], result="") => {
+    for(list of str) {
+        list === "(" 
+            ? stack.push(list) : list === ")" 
+            ? stack.pop() : stack.length ===0 && (result+=list)
     }
     return result
 }

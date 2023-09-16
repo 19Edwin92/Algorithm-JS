@@ -1,12 +1,11 @@
 const solution = (board, moves, stack=[], result=0) => {
-    moves.forEach(progress => {
-        for(i=0;i<board.length;i++) {
-            let current = board[i][progress-1]
-            if(current !==0) {
-                let pop = current
-                board[i][progress-1]=0
-                if(pop===stack[stack.length-1]) stack.pop() && (result+=2)
-                else stack.push(pop)
+    moves.forEach(current => {
+        for(let i=0; i<board.length; i++) {
+            if(board[i][current-1] !== 0) {
+                let popList = board[i][current-1]
+                board[i][current-1] = 0
+                if(popList === stack[stack.length-1]) stack.pop() && (result+=2)
+                else stack.push(popList)
                 break
             }
         }
@@ -61,6 +60,21 @@ const solution1 = (board, moves, stack=[], result=0) => {
                 board[i][progress-1]=0
                 if(targer===stack[stack.length-1]) stack.pop() && (result+=2)
                 else stack.push(targer)
+                break
+            }
+        }
+    })
+    return result
+}
+
+const solution2 = (board, moves, stack=[], result=0) => {
+    moves.forEach(current => {
+        for(i=0; i<board.length; i++) {
+            if(board[i][current-1] !== 0) {
+                let popList = board[i][current-1]
+                board[i][current-1] = 0
+                if(popList === stack[stack.length-1]) stack.pop() && (result+=2)
+                else stack.push(popList)
                 break
             }
         }

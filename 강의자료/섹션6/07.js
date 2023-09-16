@@ -1,14 +1,15 @@
-const solution = (essential, plan) => {
-    let queue = [...essential]
+const solution = (essentail, plan) => {
+    let queue = [...essentail]
     for(list of plan) {
-        if(queue.includes(list) && list!==queue.shift()) return "NO"
+        if(queue.includes(list)) {
+            if(list !== queue.shift()) return "NO"
+        }
     }
-    if(queue.length > 0) return "NO"
-    return "YES"
+    return queue.length > 0 ? "NO" : "YES"
 }
 
 let a="CBA";
-let b="CBDAGE"; // CBA 순이라면, 가능한 것이다. 
+let b="BCDAGE"; // CBA 순이라면, 가능한 것이다. 
 console.log(solution(a, b));
 
 /*  7. 교육과정설계
@@ -41,4 +42,21 @@ const solution1 = (essential, plan) => {
     }
     if(queue.length>0) return "NO"
     else return "YES"
+}
+
+const solution2 = (essential, plan) => {
+    let queue = [...essential]
+    for(list of plan) {
+        if(queue.includes(list) && list!==queue.shift()) return "NO"
+    }
+    if(queue.length > 0) return "NO"
+    return "YES"
+}
+
+const solution3 = (essentail, plan) => {
+    let queue = [...essentail]
+    for(list of plan) if(queue.includes(list) 
+        && list !== queue.shift()) return "NO"
+    if(queue.length > 0) return "NO"
+    return "YES"
 }

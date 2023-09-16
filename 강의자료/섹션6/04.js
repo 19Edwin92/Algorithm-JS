@@ -1,17 +1,17 @@
-const solution = (str, stack = []) => {
-  for (list of str) {
-    if (!isNaN(list)) stack.push(+list);
+const solution = (cnt, stack=[]) => {
+  for(list of cnt) {
+    if(!isNaN(list)) stack.push(+list)
     else {
-        let y = stack.pop()
-        let x = stack.pop()
-        list==="+" && stack.push(x+y)
-        list==="-" && stack.push(x-y)
-        list==="*" && stack.push(x*y)
-        list==="/" && stack.push(x/y)
+      let y = stack.pop()
+      let x = stack.pop()
+      list === "+" && stack.push(x+y)
+      list === "-" && stack.push(x-y)
+      list === "*" && stack.push(x*y)
+      list === "/" && stack.push(x/y)
     }
   }
   return stack[0]
-};
+}
 
 let str = "352+*9-";
 console.log(solution(str));
@@ -71,4 +71,19 @@ const solution2 = (str, stack = []) => {
   }
   let result = stack[0];
   return result;
+};
+
+const solution3 = (str, stack = []) => {
+  for (list of str) {
+    if (!isNaN(list)) stack.push(+list);
+    else {
+        let y = stack.pop()
+        let x = stack.pop()
+        list==="+" && stack.push(x+y)
+        list==="-" && stack.push(x-y)
+        list==="*" && stack.push(x*y)
+        list==="/" && stack.push(x/y)
+    }
+  }
+  return stack[0]
 };
