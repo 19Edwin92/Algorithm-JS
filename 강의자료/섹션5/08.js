@@ -1,4 +1,4 @@
-function compareMaps(map1, map2){
+function compareMaps1(map1, map2){
     if(map1.size!==map2.size) return false;
     for(let [key, val] of map1){
         if(!map2.has(key) || map2.get(key)!==val) return false;
@@ -6,30 +6,18 @@ function compareMaps(map1, map2){
     return true;
 }
 
-const solution = (arr1, arr2, answer=0) => {
-    let arr2Map = new Map()
-    for(list of arr2) {
-        arr2Map.has(list) ? arr2Map.set(list, arr2Map.get(list)+1) : arr2Map.set(list, 1)
+const solution = (str1, target, p1=result=0) => {
+    let strMap = new Map()
+    let targetMap = new Map()
+    let leng = target.length-1;
+    for(list of target) targetMap.has(list) 
+        ? targetMap.set(list, targetMap.get(list)+1) : targetMap.set(list, 1)
+    for(let i=0;i<leng;i++) strMap.has(str1.charAt(i))
+        ? strMap.set(str1.charAt(i), strMap.get(str1.charAt(i))+1) : strMap.set(str1.charAt(i), 1)
+    for(let i=leng;i<str1.length;i++) {
+        // 먼저 Map에 첫번째 아나그램 판별을 위한 값을 밀어넣는다. 
     }
-    // ========================== 이중for문으로 풀 수 있겠지만.. 
-    // 투포인트에 2개를 넣어두고 
-    // 슬라이더를 하면서 3개를 추가하고 비교하고, 전진하면서 나가면 된다. 
-    let arr1Map = new Map()
-    let p1=0;
-    let p2 = arr2.length-1
-    for(let i=0; i<p2;i++) {
-        arr1Map.has(arr1.charAt(i)) ? arr1Map.set(arr1.charAt(i), arr2Map.get(arr1.charAt(i))+1) : arr1Map.set(arr1.charAt(i), 1)
-    }
-    for(let slice=p2; slice<arr1.length; slice++) {
-        arr1Map.has(arr1[p2]) ? arr1Map.set(arr1[p2], arr1Map.get(arr1[p2])+1) : arr1Map.set(arr1[p2], 1)
-        if(compareMaps(arr1Map, arr2Map)) answer++;
-        arr1Map.set(arr1[p1], arr1Map.get(arr1[p1])-1)
-        arr1Map.get(arr1[p1])===0 && arr1Map.delete(arr1[p1]);
-        p1++
-    }
-
-
-    return answer
+    return result
 }
 
 let a="bacaAacba";
@@ -72,4 +60,30 @@ function solutionExam(s, t){
         lt++;
     }
     return answer;
+}
+
+const solution2 = (arr1, arr2, answer=0) => {
+    let arr2Map = new Map()
+    for(list of arr2) {
+        arr2Map.has(list) ? arr2Map.set(list, arr2Map.get(list)+1) : arr2Map.set(list, 1)
+    }
+    // ========================== 이중for문으로 풀 수 있겠지만.. 
+    // 투포인트에 2개를 넣어두고 
+    // 슬라이더를 하면서 3개를 추가하고 비교하고, 전진하면서 나가면 된다. 
+    let arr1Map = new Map()
+    let p1=0;
+    let p2 = arr2.length-1
+    for(let i=0; i<p2;i++) {
+        arr1Map.has(arr1.charAt(i)) ? arr1Map.set(arr1.charAt(i), arr2Map.get(arr1.charAt(i))+1) : arr1Map.set(arr1.charAt(i), 1)
+    }
+    for(let slice=p2; slice<arr1.length; slice++) {
+        arr1Map.has(arr1[p2]) ? arr1Map.set(arr1[p2], arr1Map.get(arr1[p2])+1) : arr1Map.set(arr1[p2], 1)
+        if(compareMaps(arr1Map, arr2Map)) answer++;
+        arr1Map.set(arr1[p1], arr1Map.get(arr1[p1])-1)
+        arr1Map.get(arr1[p1])===0 && arr1Map.delete(arr1[p1]);
+        p1++
+    }
+
+
+    return answer
 }

@@ -1,14 +1,15 @@
-const solution = (a,b, p1=p2=0, result=[]) => {
-    a.sort((a,b) => a-b)
-    b.sort((a,b) => a-b)
-    while(p1<a.length && p2<b.length) a[p1] < b[p2] 
-        ? p1++ 
-        : a[p1] === b[p2] 
-            ? result.push(a[p1++]) && p2++ 
-            : p2++
+const solution = (arr1, arr2, p1=p2=0, result=[]) => {
+    let leng1 = arr1.sort((a,b) => a-b).length
+    let leng2 = arr2.sort((a,b) => a-b).length
+    while(p1 < leng1 && p2 < leng2) {
+        arr1[p1] === arr2[p2]
+            ? result.push(arr1[p1++]) && p2++
+            : arr1[p1] < arr2[p2]
+                ? p1++
+                : p2++
+    }
     return result
 }
-
 
 let a=[1, 3, 9, 5, 2];
 let b=[3, 2, 5, 7, 8];
@@ -52,6 +53,29 @@ const solution2 = (arr1, arr2, result=[]) => {
         :  arr1[pOne] < arr2[pTwo] 
             ? pOne++
             : pTwo++
+    }
+    return result
+}
+const solution3 = (a,b, p1=p2=0, result=[]) => {
+    a.sort((a,b) => a-b)
+    b.sort((a,b) => a-b)
+    while(p1<a.length && p2<b.length) a[p1] < b[p2] 
+        ? p1++ 
+        : a[p1] === b[p2] 
+            ? result.push(a[p1++]) && p2++ 
+            : p2++
+    return result
+}
+
+const solution4 = (arr1, arr2, pnt1 = pnt2 = 0,result=[]) => {
+    let leng1 = arr1.sort((a,b) => a-b).length
+    let leng2 = arr2.sort((a,b) => a-b).length
+    while (pnt1 < leng1 && pnt2 < leng2) {
+        arr1[pnt1] === arr2[pnt2]
+            ? (result.push(arr1[pnt1++]) && pnt2++)
+            : arr1[pnt1] < arr2[pnt2]
+                ? pnt1++
+                : pnt2++
     }
     return result
 }

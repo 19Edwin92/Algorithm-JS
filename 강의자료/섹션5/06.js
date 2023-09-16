@@ -1,10 +1,7 @@
 const solution = (str, map=new Map(), maxNum=Number.MIN_SAFE_INTEGER, result="") => {
-    for(list of str)  {
-        map.has(list) 
-            ? map.set(list, map.get(list)+1) 
-            : map.set(list, 1)
-    }
-    for([key, val] of map) maxNum<val && (maxNum=val) && (result=key)
+    for(list of str) map.has(list)
+        ? map.set(list, map.get(list)+1) : map.set(list, 1)
+    for([key, val] of map) val>maxNum && (maxNum=val) && (result=key)
     return result
 }
 
@@ -17,7 +14,9 @@ console.log(solution(str));
     Map을 사용하면 된다. 객체니까. 
     - set(key, value) 값을 등록한다. 
     - get은 값을 가져오는 것이다. 
-    Set에 등록은 app 
+    - Set에 등록은 app 
+
+    이터러블을 순회하며 값을 비교하여 찾는 문제는 해쉬로 붙는 문제이다. 
     */
 
 
@@ -36,4 +35,24 @@ function solutionExam(s){
         }
     }
     return answer;
+}
+
+const solution1 = (str, map=new Map(), maxNum=Number.MIN_SAFE_INTEGER, result="") => {
+    for(list of str)  {
+        map.has(list) 
+            ? map.set(list, map.get(list)+1) 
+            : map.set(list, 1)
+    }
+    for([key, val] of map) maxNum<val && (maxNum=val) && (result=key)
+    return result
+}
+
+const solution2 = (str, maxNum=Number.MIN_SAFE_INTEGER, result="") => {
+    let map = new Map()
+    for(list of str) map.has(list)
+        ? map.set(list, map.get(list)+1) : map.set(list, 1)
+
+    for([key,value] of map) value>maxNum
+        && (maxNum=value) && (result=key)
+    return result
 }

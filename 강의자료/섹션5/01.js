@@ -1,10 +1,10 @@
-const solution = (a, b, p1 = p2 = 0,result=[]) => {
-    while(p1 < a.length && p2 < b.length) a[p1] <= b[p2] ? result.push(a[p1++]) : result.push(b[p2++])
-    while(p1 < a.length) result.push(a[p1++])
-    while(p2 < b.length) result.push(b[p2++])
+const solution = (arr1, arr2, p1=p2=0, result=[]) => {
+    while(p1< arr1.length && p2 < arr2.length) arr1[p1] < arr2[p2] 
+        ? result.push(arr1[p1++]) : result.push(arr2[p2++])
+    while(p1< arr1.length) result.push(arr1[p1++])
+    while(p2< arr2.length) result.push(arr2[p2++])
     return result
 }
-
 
 let a=[1, 3, 5];
 let b=[2, 3, 6, 7, 9];
@@ -59,4 +59,16 @@ const solution2 = (arr1, arr2, answer=[]) => {
     return answer
 }
 
+const solution3 = (a, b, p1 = p2 = 0,result=[]) => {
+    while(p1 < a.length && p2 < b.length) a[p1] <= b[p2] ? result.push(a[p1++]) : result.push(b[p2++])
+    while(p1 < a.length) result.push(a[p1++])
+    while(p2 < b.length) result.push(b[p2++])
+    return result
+}
 
+const solution4 = (arr1, arr2, point1=point2=0,result=[]) => {
+    while(point1<arr1.length && point2<arr2.length) arr1[point1] <= arr2[point2] ? result.push(arr1[point1++]) : result.push(arr2[point2++])
+    while(point1<arr1.length) result.push(arr1[point1++]) 
+    while(point1<arr2.length) result.push(arr2[point1++]) 
+    return result
+}

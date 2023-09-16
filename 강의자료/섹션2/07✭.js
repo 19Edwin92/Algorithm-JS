@@ -1,15 +1,23 @@
-const solution = (arr, result=0) => {
-  for(let i =0; i<arr.length; i++) {
-    for(let j =0; j<arr.length; j++) {
-      const currentNum = arr[i][j]
-      const isTop = i === 0;
-      const isBottom = i === arr.length-1;
-      const isLeft = j === 0;
-      const isRight = j === arr.length-1;
-        (isTop || arr[i-1][j] < currentNum) && 
-        (isBottom || arr[i+1][j] < currentNum) &&
-        (isLeft || arr[i][j-1] < currentNum) &&
-        (isRight || arr[i][j+1] < currentNum) && result++
+const solution = (arr, leng=arr.length, result=0) => {
+  const dx = [-1, 0, 1, 0];
+  const dy = [0, 1, 0, -1]; // 시계방향 탐색
+  for(let i=0;i<leng;i++) {
+    for(let j=0;j<leng;j++) {
+      let flag=1
+      for(let k=0;k<4;k++) {
+        let nx = i + dx[k];
+        let ny = j + dy[k];
+        let fromTop = nx >= 0;
+        let toBottom = nx < leng;
+        let fromLeft = ny >=0;
+        let toRight = ny < leng
+
+        if ( fromTop && toBottom && fromLeft && toRight && arr[nx][ny] >= arr[i][j]) {
+          flag = 0;
+          break;
+        }
+      }
+      flag && result++
     }
   }
   return result
@@ -127,3 +135,20 @@ const solutionWithReduce = (arr) => {
     }, 0);
   };
 
+
+  const solution3 = (arr, result=0) => {
+    for(let i =0; i<arr.length; i++) {
+      for(let j =0; j<arr.length; j++) {
+        const currentNum = arr[i][j]
+        const isTop = i === 0;
+        const isBottom = i === arr.length-1;
+        const isLeft = j === 0;
+        const isRight = j === arr.length-1;
+          (isTop || arr[i-1][j] < currentNum) && 
+          (isBottom || arr[i+1][j] < currentNum) &&
+          (isLeft || arr[i][j-1] < currentNum) &&
+          (isRight || arr[i][j+1] < currentNum) && result++
+      }
+    }
+    return result
+  }

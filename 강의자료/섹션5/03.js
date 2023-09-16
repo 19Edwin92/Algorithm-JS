@@ -1,15 +1,14 @@
-const solution = (target, arr, start=count=result=0) => {
-    for(let end=0; end<arr.length;end++) {
-        count+=arr[end]
-        count===target && result++
-        while(count >= target) {
-            count-=arr[start++]
-            count === target && result++
+const solution = (target, arr, tail=calc=result=0) => {
+    for(let i=0;i<arr.length;i++) {
+        calc+=arr[i]
+        calc===target && result++
+        while(calc>=target) {
+            calc-=arr[tail++]
+            calc===target && result++
         }
     }
     return result
 }
-
 
 
 let a=[1, 2, 1, 3, 1, 1, 1, 2];
@@ -25,26 +24,6 @@ console.log(solution(6, a));
                 이는 본인이 target과 일치할 수 있기 때문이다. 
             (2) i번지로부터 반복하면서, 다음 요소들을 더하면서 판별한다. 
                 while 을 통한 반복은 target보다 같거나 클 때까지이다. 
-                =============================
-                i 0 calc : 1
-                =============================
-                i 1 calc : 3
-                =============================
-                i 2 calc : 4
-                =============================
-                i 3 calc : 7
-                i 3 calc : 7 arr[progress] :  1 0
-                i 3 calc : 6 arr[progress] :  2 1
-                =============================
-                i 4 calc : 5
-                =============================
-                i 5 calc : 6
-                i 5 calc : 6 arr[progress] :  1 2
-                =============================
-                i 6 calc : 6
-                i 6 calc : 6 arr[progress] :  3 3
-                =============================
-                i 7 calc : 5
 */
 
 function solutionExam(m, arr){
@@ -94,3 +73,27 @@ const solutionDevelop = (target, arr) => {
 
     return answer;
 };
+
+const solution2 = (target, arr, start=count=result=0) => {
+    for(let end=0; end<arr.length;end++) {
+        count+=arr[end]
+        count===target && result++
+        while(count >= target) {
+            count-=arr[start++]
+            count === target && result++
+        }
+    }
+    return result
+}
+
+const solution3 = (target, arr, tail=calc=result=0) => {
+    for(let i=0;i<arr.length; i++) {
+        calc+=arr[i]
+        calc===target && result++
+        while(calc >= target) {
+            calc-=arr[tail++]
+            calc===target && result++
+        }
+    }
+    return result
+}

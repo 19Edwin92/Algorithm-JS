@@ -1,12 +1,15 @@
-const solution = (a, b) => {
-  return a.map((list, idx) =>
-    list === b[idx]
-      ? "D"
-      : (list === 1 && b[idx] === 3) || list - b[idx] === 1
-      ? "A"
-      : "B"
-  );
-};
+const solution = (arr1, arr2, result="") => {
+  arr1.forEach((list,idx) => {
+    list === arr2[idx]
+      ? result+="D\n"
+      : (list===1 && arr2[idx] === 3 ) || 
+        (list===2 && arr2[idx] === 1) || 
+        (list===3 && arr2[idx] === 2)
+        ?result+="A\n"
+        :result+="B\n"
+  })
+  return result
+}
 
 let a = [2, 3, 3, 1, 3]; // a의 정보
 let b = [1, 1, 2, 2, 3]; // b의 정보
@@ -56,4 +59,14 @@ const solution1 = (a, b) => {
   );
 
   return result.join("\n");
+};
+
+const solution2 = (a, b) => {
+  return a.map((list, idx) =>
+    list === b[idx]
+      ? "D"
+      : (list === 1 && b[idx] === 3) || list - b[idx] === 1
+      ? "A"
+      : "B"
+  );
 };

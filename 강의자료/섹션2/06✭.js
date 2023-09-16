@@ -1,15 +1,12 @@
-const solution = (arr) => { 
-    const arrFrom = type => Array.from({length:arr.length}, (_,idx) =>
-    type==="vertial" 
-        ? arr.map((_,idx2) => arr[idx2][idx]) 
-        : type==="diagonalL" 
-            ? arr[idx][idx] 
-            : arr[idx][arr.length-1-idx])
-
-    let newArr = [...arr, ...arrFrom("vertial"), arrFrom("diagonalL"), arrFrom()]
-    return Math.max(...newArr.map(list => list.reduce((calc, num) => calc+num, 0)))
+const solution = (arr, leng={length:arr.length}) => {
+    const list = [
+        ...arr,
+        ...Array.from(leng, (_,inner) => arr.map((_,row) => arr[row][inner])),
+        Array.from(leng, (_,idx)=> arr[idx][idx]),
+        Array.from(leng, (_,idx)=> arr[arr.length-idx-1][arr.length-idx-1]),
+    ]
+    return Math.max(...list.map(list => list.reduce((pre, cur) => pre+cur,0)))
 }
-
 
 let arr=[[10, 13, 10, 12, 15], 
          [12, 39, 30, 23, 11],
@@ -52,4 +49,16 @@ const solution1 = (arr) => {
     ]
 
     return Math.max(...resultArr.map(list => list.reduce((pre, cur) => pre+cur, 0)))
+}
+
+const solution2 = (arr) => { 
+    const arrFrom = type => Array.from({length:arr.length}, (_,idx) =>
+    type==="vertial" 
+        ? arr.map((_,idx2) => arr[idx2][idx]) 
+        : type==="diagonalL" 
+            ? arr[idx][idx] 
+            : arr[idx][arr.length-1-idx])
+
+    let newArr = [...arr, ...arrFrom("vertial"), arrFrom("diagonalL"), arrFrom()]
+    return Math.max(...newArr.map(list => list.reduce((calc, num) => calc+num, 0)))
 }

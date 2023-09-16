@@ -1,24 +1,15 @@
-const solution = (date, arr,result=0) => {
-    
-    for(let i=0; i<arr.length-date;i++) {
-        const copy = [...arr]; 
-        result = Math.max(result, copy.slice(i, i+date).reduce((pre, cur) => pre+cur, 0))
-    }
-    
-    return result
-}
+const solution = (date, arr, calc=result=0) => {
+    // 초기값 설정
+    for(let i=0;i<date;i++) calc+=arr[i]
+    result+=calc
 
-const slidingWindow = (window, arr, result=count=0) => {
-    for(let defaultData=0; defaultData<window;defaultData++) count+=arr[defaultData]
-    result=count
-
-    for(let slide=window;slide<arr.length;slide++) {
-        count+=(arr[i]-arr[i-window])
-        result=Math.max(result, count)
+    // 슬라이딩 윈도우를 진행하며, 최대값 산출
+    for(let slide=date;slide<arr.length;slide++) {
+        calc+=(arr[slide]-arr[slide-date])
+        result=Math.max(calc, result)
     }
     return result
-}
-
+} 
 
 
 let a=[12, 15, 11, 20, 25, 10, 20, 19, 13, 15];
@@ -42,4 +33,25 @@ function solutionExam(k, arr){
         answer=Math.max(answer, sum);
     }                    
     return answer;
+}
+
+const solution1 = (date, arr,result=0) => {
+    
+    for(let i=0; i<arr.length-date;i++) {
+        const copy = [...arr]; 
+        result = Math.max(result, copy.slice(i, i+date).reduce((pre, cur) => pre+cur, 0))
+    }
+    
+    return result
+}
+
+const slidingWindow = (window, arr, result=count=0) => {
+    for(let defaultData=0; defaultData<window;defaultData++) count+=arr[defaultData]
+    result=count
+
+    for(let slide=window;slide<arr.length;slide++) {
+        count+=(arr[i]-arr[i-window])
+        result=Math.max(result, count)
+    }
+    return result
 }

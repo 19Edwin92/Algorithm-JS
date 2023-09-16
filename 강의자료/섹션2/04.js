@@ -1,5 +1,5 @@
-const solution = (arr, count=0, result=0) => {
-  arr.forEach(arr => arr===1 && (result+=(1+count)) ? count++ : count=0)
+const solution = (arr, count=result=0)=> {
+  arr.forEach(list => list===1 && (result+=(list+count)) ? count++ : count=0)
   return result
 }
 
@@ -49,3 +49,8 @@ const solution1 = (arr) => {
     { calc: 0, preArrNum: 1 }
   ).calc;
 };
+
+const solution2 = (arr, count=0, result=0) => {
+  arr.forEach(arr => arr===1 && (result+=(1+count)) ? count++ : count=0)
+  return result
+}

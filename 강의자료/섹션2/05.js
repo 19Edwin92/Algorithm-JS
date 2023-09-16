@@ -1,9 +1,9 @@
 const solution = arr => {
   let rank = [...arr].sort((a,b) => b-a)
-  return arr.map(list => rank.findIndex(rank => rank === list)+1)
+  return arr.map(list => rank.findIndex(rank => rank===list)+1)
 }
 
-let arr = [87, 89, 100, 100, 76];
+let arr = [87, 89, 92, 100, 76];
 console.log(solution(arr));
 
 
@@ -70,3 +70,12 @@ const solutionErr1 = (arr) => {
 
 //  첫 번째 함수가 더 효율적인 선택이며, 두 번째 함수는 정확한 결과를 반환하더라도 시간 복잡도 측면에서는 비효율적이다.
 
+const solution4 = (arr, result={}) => {
+  [...arr].sort((a,b)=> b-a).forEach((list, idx) => !result[list] && (result[list]=idx+1))
+  return arr.map(list => result[list])
+}
+
+const solution5 = arr => {
+  let rank = [...arr].sort((a,b) => b-a)
+  return arr.map(list => rank.findIndex(rank => rank === list)+1)
+}

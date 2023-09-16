@@ -1,12 +1,18 @@
-const solution = (str1, str2, map=new Map(), result="YES") => {
-    for(list of str1) map.has(list) || map.get(list)===0 ? map.set(list, map.get(list)+1) : map.set(list,1)
-    for(lisf of str2) !map.has(list) ? result="NO" : map.set(list, map.get(list)-1)
-    return result
+const solution = ( str1, str2, map=new Map())=> {
+    for (list of str1) map.has(list) 
+        ? map.set(list, map.get(list)+1) : map.set(list, 1)
+    for (list of str2) {
+        if(!map.has(list)||map.get(list)===0) return "NO"
+        map.set(list, map.get(list)-1)
+    }
+    return "YES"
 }
 
 
-let a="AbaAeCe";
-let b="baeeACA";
+// let a="AbaAeCe";
+// let b="baeeACA";
+let a = "abaCC";
+let b = "Caaab";
 console.log(solution(a, b));
 
 /*  7. 아나그램- 해쉬
@@ -31,4 +37,9 @@ function solutionExam(str1, str2){
 const solutionNoHash = (a,b) => {
     const sortStr = (str) => [...str].sort().join("")
     return sortStr(a) === sortStr(b) ? "YES" : "NO"
+}
+const solution1 = (str1, str2, map=new Map(), result="YES") => {
+    for(list of str1) map.has(list) || map.get(list)===0 ? map.set(list, map.get(list)+1) : map.set(list,1)
+    for(lisf of str2) !map.has(list) ? result="NO" : map.set(list, map.get(list)-1)
+    return result
 }
