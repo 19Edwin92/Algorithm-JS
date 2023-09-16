@@ -1,11 +1,11 @@
 const solution = (board, moves, stack=[], result=0) => {
     moves.forEach(progress => {
-        for(let i=0; i<board.length;i++) {
+        for(i=0;i<board.length;i++) {
             let current = board[i][progress-1]
-            if( current !==0) {
+            if(current !==0) {
                 let pop = current
-                board[i][progress-1] = 0
-                if(pop ===stack[stack.length-1]) stack.pop() && (result+=2)
+                board[i][progress-1]=0
+                if(pop===stack[stack.length-1]) stack.pop() && (result+=2)
                 else stack.push(pop)
                 break
             }

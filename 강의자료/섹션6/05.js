@@ -1,15 +1,16 @@
-const solution = (str,stack=[], result=0) => {
-    for(let i=0; i<str.length; i++) {
-        str.charAt(i) ==='(' 
-            ? stack.push('(')
-            : stack.pop() && str.charAt(i-1) === '(' 
-                ? result+=stack.length
-                : result++
+const solution = (str, stack=[], result=0) => {
+    for(let i=0;i<str.length; i++) {
+        if(str.charAt(i) === "(" ) stack.push('(')
+        else{
+            stack.pop()
+            str.charAt(i-1) === "(" ? (result+=stack.length) : result++
+        }
     }
     return result
 }
 
-let a="()(((()())(())()))(())";
+// let a="()(((()())(())()))(())";
+let a="(((()(()()))(())()))(()())"
 console.log(solution(a));
 
 /*  5. 쇠막대기
@@ -38,3 +39,14 @@ function solutionExam(s){
     return answer;
 }
 
+
+const solution1 = (str,stack=[], result=0) => {
+    for(let i=0; i<str.length; i++) {
+        str.charAt(i) ==='(' 
+            ? stack.push('(')
+            : stack.pop() && str.charAt(i-1) === '(' 
+                ? result+=stack.length
+                : result++
+    }
+    return result
+}
